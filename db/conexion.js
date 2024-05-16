@@ -1,7 +1,16 @@
 import pg from 'pg-promise'
 const pgp =pg();
 
-const conexion = 'postgresql://postgres:Jason1708@localhost:5432/postgres';
+import { configDotenv } from 'dotenv';
+
+configDotenv();
+
+const user_db = process.env.user_db; 
+const user_pass = process.env.user_pass;
+const host = process.env.host;
+const database = process.env.database;
+
+const conexion = `postgresql://${user_db}:${user_pass}@${host}:5432/${database}`;
 
 const db = pgp(conexion);
 

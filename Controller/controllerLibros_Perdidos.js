@@ -12,19 +12,32 @@ const getLperdidos = async (req,res) =>{
 
 }
 
-const postLperdidos = async (req,res)=>{
-    const {fecha_notificacion} = req.body;
+const getLperdidosid = async (req,res) =>{
 
-    const dataisert = [fecha_notificacion]
+    const {id} = req.params;
+
+    const sql =`select * from Libros_Perdidos where perdida_id = $1`;
+    const result = await db.query(sql,[id]);
+
+
+    return res.json(result) 
+
+
+}
+
+const postLperdidos = async (req,res)=>{
+    const {libro_id,fecha_notificacion,usuario_id} = req.body;
+
+    const dataisert = [libro_id,fecha_notificacion,usuario_id]
 
     const sql = `insert into Libros_Perdidos
-                  (fecha_notificacion)
+                  (libro_id,fecha_notificacion,usuario_id)
                   values
-                   ($1) returning perdida_id,libro_id,fecha_notificacion,usuario_id`
+                   ($1,$2,$3) returning perdida_id,libro_id,fecha_notificacion,usuario_id`
 
     const result = await db.query (sql,dataisert )              
 
     return res.json({ mensaje: "Se agregó el libro perdido exitosamente", Obj_indertado: result });
 }
 
-export {getLperdidos,postLperdidos}
+export {getLperdidos,postLperdidos,getLperdidosid}

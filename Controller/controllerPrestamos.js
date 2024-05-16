@@ -11,14 +11,14 @@ const getprestamos = async (req,res) =>{
 }
 
 const postprestamos = async (req,res)=>{
-    const {fecha_prestamo,fecha_devolucion} = req.body;
+    const {usuario_id, libro_id,fecha_prestamo,fecha_devolucion} = req.body;
 
-    const dataisert = [fecha_prestamo,fecha_devolucion]
+    const dataisert = [usuario_id, libro_id,fecha_prestamo,fecha_devolucion]
 
     const sql = `insert into Prestamos
-                  (fecha_prestamo,fecha_devolucion)
+                  (usuario_id, libro_id,fecha_prestamo,fecha_devolucion)
                   values
-                   ($1,$2) returning prestamo_id,usuario_id,libro_id,fecha_prestamo,fecha_devolucion`
+                   ($1,$2,$3,$4) returning prestamo_id,usuario_id,libro_id,fecha_prestamo,fecha_devolucion`
 
     const result = await db.query (sql,dataisert )              
 

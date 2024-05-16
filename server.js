@@ -3,7 +3,12 @@ import { Librosperdidos } from './Router/routerLibros_Perdidos.js';
 import { RLibros } from './Router/routerLibros.js';
 import { Lprestamos } from './Router/routerPrestamos.js';
 import { Personas } from './Router/routerUsuarios.js';
+import  cors from 'cors'
+
+
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
