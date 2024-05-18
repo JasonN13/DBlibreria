@@ -3,6 +3,8 @@ import { Librosperdidos } from './Router/routerLibros_Perdidos.js';
 import { RLibros } from './Router/routerLibros.js';
 import { Lprestamos } from './Router/routerPrestamos.js';
 import { Personas } from './Router/routerUsuarios.js';
+import { RegistroPrestamos } from './Router/RouterRPrestamos.js';
+import { RLPerdidos } from './Router/routerLPerdidos.js';
 import  cors from 'cors'
 
 
@@ -19,6 +21,10 @@ app.use('/Libros',RLibros);
 app.use('/Prestamos',Lprestamos);
 
 app.use('/Usuarios',Personas);
+
+app.use('/Registro_Prestamos',RegistroPrestamos)
+
+app.use('/Registro_libros_perdidos',RLPerdidos)
 
 app.listen(3000,()=>{
     console.log("iniciando en el puerto 3000")

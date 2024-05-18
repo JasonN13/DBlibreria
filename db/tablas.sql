@@ -37,3 +37,27 @@ CREATE TABLE Libros_Perdidos (
     usuario_id INTEGER REFERENCES Usuarios(usuario_id)
 );
 
+SELECT
+    u.nombre AS nombre_usuario,
+    l.titulo AS titulo_libro,
+    p.fecha_prestamo
+FROM
+    Prestamos p
+JOIN
+    Libros l ON p.libro_id = l.libro_id
+JOIN
+    Usuarios u ON p.usuario_id = u.usuario_id 
+ORDER BY
+    p.fecha_prestamo;
+
+
+SELECT
+    u.nombre AS nombre_usuario,
+    l.titulo AS titulo_libro,
+    lp.fecha_notificacion AS fecha_extravio
+FROM
+    Libros_Perdidos lp
+JOIN
+    Libros l ON lp.libro_id = l.libro_id
+JOIN
+    Usuarios u ON lp.usuario_id = u.usuario_id;

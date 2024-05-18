@@ -33,7 +33,7 @@ const postLperdidos = async (req,res)=>{
     const sql = `insert into Libros_Perdidos
                   (libro_id,fecha_notificacion,usuario_id)
                   values
-                   ($1,$2,$3) returning perdida_id,libro_id,fecha_notificacion,usuario_id`
+                   ($1,$2,$3) returning *`
 
     const result = await db.query (sql,dataisert )              
 

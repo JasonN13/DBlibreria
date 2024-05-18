@@ -18,7 +18,7 @@ const postprestamos = async (req,res)=>{
     const sql = `insert into Prestamos
                   (usuario_id, libro_id,fecha_prestamo,fecha_devolucion)
                   values
-                   ($1,$2,$3,$4) returning prestamo_id,usuario_id,libro_id,fecha_prestamo,fecha_devolucion`
+                   ($1,$2,$3,Null) returning prestamo_id,usuario_id,libro_id,fecha_prestamo,fecha_devolucion`
 
     const result = await db.query (sql,dataisert )              
 
