@@ -64,3 +64,5 @@ JOIN
 
 
 SELECT * FROM Usuarios
+
+SELECT * FROM Libros
