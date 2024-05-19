@@ -61,3 +61,6 @@ JOIN
     Libros l ON lp.libro_id = l.libro_id
 JOIN
     Usuarios u ON lp.usuario_id = u.usuario_id;
+
+
+SELECT * FROM Usuarios

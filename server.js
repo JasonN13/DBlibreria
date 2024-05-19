@@ -5,6 +5,7 @@ import { Lprestamos } from './Router/routerPrestamos.js';
 import { Personas } from './Router/routerUsuarios.js';
 import { RegistroPrestamos } from './Router/RouterRPrestamos.js';
 import { RLPerdidos } from './Router/routerLPerdidos.js';
+import { Registro_Usuarios } from './Router/routerRUsuarios.js';
 import  cors from 'cors'
 
 
@@ -25,6 +26,8 @@ app.use('/Usuarios',Personas);
 app.use('/Registro_Prestamos',RegistroPrestamos)
 
 app.use('/Registro_libros_perdidos',RLPerdidos)
+
+app.use('/Registro_NUsuarios',Registro_Usuarios)
 
 app.listen(3000,()=>{
     console.log("iniciando en el puerto 3000")
