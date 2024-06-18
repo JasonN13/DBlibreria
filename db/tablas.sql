@@ -37,6 +37,23 @@ CREATE TABLE Libros_Perdidos (
     usuario_id INTEGER REFERENCES Usuarios(usuario_id)
 );
 
+CREATE TABLE TBLusuarios (
+    nombre_usuario VARCHAR(100) PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL,
+    apellido VARCHAR(80)NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    contrasena VARCHAR(100) NOT NULL,
+    fecha_creacion  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    activo BOOL DEFAULT TRUE 
+);
+
+
+
+
+
+
+
+
 SELECT
     u.nombre AS nombre_usuario,
     l.titulo AS titulo_libro,

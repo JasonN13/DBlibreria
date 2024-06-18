@@ -20,7 +20,7 @@ db.connect()
 })
 
 .catch( (err)=>{
-    console.log(`error de coneccion ${err}`)
+    console.log(`error de conexion ${err}`)
 })
 
 export {db}
