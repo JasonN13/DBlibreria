@@ -19,7 +19,7 @@ const postLibros =async (req,res)=>{
     const sql = `insert into Libros
                   (titulo,autor,genero,anio_publicacion,isbn,disponibilidad)
                   values
-                   ($1,$2,$3,$4,$5,$6) returning titulo,autor,genero,anio_publicacion,isbn,disponibilidad`
+                   ($1,$2,$3,$4,$5,$6) returning libro_id,titulo,autor,genero,anio_publicacion,isbn,disponibilidad`
 
     const result = await db.query (sql,dataisert )              
 
